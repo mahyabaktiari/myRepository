@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mashin Hessab</title>
+    <link rel="stylesheet" href="mashin_hessab.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id='box'>
+            <input type="text" id=input_box readonly>
+            <p class="number">7</p>
+            <p class="number">8</p>
+            <p class="number">9</p>
+            <p class="action">*</p>
+            <p class="number">4</p>
+            <p class="number">5</p>
+            <p class="number">6</p>
+            <p class="action">-</p>
+            <p class="number">1</p>
+            <p class="number">2</p>
+            <p class="number">3</p>
+            <p class="action">+</p>
+            <p class="number">0</p>
+            <p class="action">%</p>
+            <p class="mosavi">=</p>
+            <p class="AC">AC</p>
+        </div>
+    </div>
+<script>
+    $(document).ready(function(){
+        var action = 0 
+        $(".number").click(function(){
+            var input_value= parseFloat($(this).text());
+            $('#input_box').val(function(){
+                return this.value + input_value;
+            });
+        });
+
+        $(".AC").click(function(){
+            $("#input_box").val('');
+            numbers = [];
+        });
+
+        $(".action").click(function(){
+            var input_value= $(this).text();
+            $('#input_box').val(function(){
+                return this.value + input_value;
+            });
+        })
+
+        $(".mosavi").click(function(){
+            $('#input_box').val(function(){
+                return eval($(this).val());
+            });
+
+        })
+    })
+</script>
+</body>
+</html>
